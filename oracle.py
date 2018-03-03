@@ -19,5 +19,5 @@ def OraclePG(qc,indice):
     return F, G
 
 if __name__ == '__main__':
-    F, G = OraclePG(np.random.normal(size=n-md))
+    F, G = OraclePG(np.random.normal(size=n-md),1)
     print(F, G)
