@@ -21,7 +21,7 @@ def gradient_fixe(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, t
     x = x0
     for k in range(iter_max):
         # Valeur du critère et du gradient
-        loss, gradient = oracle(x)
+        loss, gradient, _ = oracle(x)
         gradient_norm = norm(gradient)
 
         # Test de convergence
@@ -56,7 +56,7 @@ def gradient_fixe(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, t
     return loss_opt, x_opt, gradient_opt
     
 if __name__ == '__main__':
-    oracle = lambda x: (x**2, np.array(x*2))
+    oracle = lambda x: (x**2, np.array(x*2), None)
     x0 = np.array([2])
     loss_opt, x_opt, gradient_opt = gradient_fixe(oracle, x0)
 
