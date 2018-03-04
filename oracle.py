@@ -13,7 +13,7 @@ def oracle(qc, compute_gradient=True, compute_hessian=False):
     # critère
     loss = 1./3*dot(q, r*q*np.abs(q)) + dot(pr, dot(Ar, q))
     # TODO dérivée du critère par rapport à qc (à calculer)
-    gradient = np.zeros((len(qc), len(qc))) if compute_gradient else None
+    gradient = (1/3)*dot(np.transpose(B),r*q*abs(q)) + (2/3)*dot(np.transpose(B),r*q*abs(q)) + dot(dot(np.transpose(B),np.transpose(Ar)),pr) if compute_gradient else None
     hessian = np.zeros((len(qc), len(qc))) if compute_hessian else None
     return loss, gradient, hessian
 
