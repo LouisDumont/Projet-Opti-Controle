@@ -5,16 +5,18 @@ from numpy import dot
 
 from structure_r import *
 
-def OraclePG(qc):
+def oracle_pg(qc):
     Q0 = np.zeros(n)
     Q0[:md] = dot(AdI, fd)
-    q = Q0 + dot(B, qc) 
+    q = Q0 + dot(B, qc)
     # critère
-    F = 1./3*dot(q, r*q*np.abs(q)) + dot(pr, dot(Ar, q))
-    # TODO dérivée du critère par rapport à qc
-    G = 0 
-    return F, G
+    loss = 1./3*dot(q, r*q*np.abs(q)) + dot(pr, dot(Ar, q))
+    # TODO dérivée du critère par rapport à qc (à calculer)
+    gradient = np.array([ 0 ])
+    return loss, gradient
 
 if __name__ == '__main__':
-    F, G = OraclePG(np.random.normal(size=n-md))
-    print(F, G)
+    # Test
+    qc = np.random.normal(size=n-md)
+    loss, gradient = oracle_pg(qc)
+    print(loss, gradient)
