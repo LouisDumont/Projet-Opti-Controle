@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import matplotlib.pyplot as plt
 
 def visualize(gradient_norm_list, gradient_step_list, loss_list):

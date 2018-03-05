@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from datas import *
+from datas_r import *
 from oracle import oracle
 
 import numpy as np
