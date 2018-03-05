@@ -4,17 +4,18 @@ from datas import *
 
 import numpy as np
 from numpy import dot
-
+from numpy import transpose as t
 
 def oracle(qc, compute_gradient=True, compute_hessian=False):
     Q0 = np.zeros(n)
     Q0[:md] = dot(AdI, fd)
     q = Q0 + dot(B, qc)
-    # critère
+    # Critère
     loss = 1./3*dot(q, r*q*np.abs(q)) + dot(pr, dot(Ar, q))
-    # TODO dérivée du critère par rapport à qc (à calculer)
-    gradient = (1/3)*dot(np.transpose(B),r*q*abs(q)) + (2/3)*dot(np.transpose(B),r*q*abs(q)) + dot(dot(np.transpose(B),np.transpose(Ar)),pr) if compute_gradient else None
+    # Dérivée du critère par rapport à qc (à calculer)
+    gradient = dot(t(B), r*q*abs(q)) + dot(dot(t(B), t(Ar)), pr) if compute_gradient else None
     hessian = np.zeros((len(qc), len(qc))) if compute_hessian else None
+    
     return loss, gradient, hessian
 
 if __name__ == '__main__':

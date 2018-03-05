@@ -2,15 +2,15 @@
 
 from datas import *
 
-from hydraulique import compute_hydraulique
+from hydraulic import compute_hydraulic_p
 
 import numpy as np
 from numpy import dot, transpose as t
 
 def verify_equilibrum(q, z, f, p):
     # Ecarts maximaux sur les lois de Kirschoff
-    tol_debits = np.abs(dot(A, q) - f).max()
-    tol_pression = np.abs(dot(t(A), p) + z).max()
+    tol_debits = max(abs(dot(A, q) - f))
+    tol_pression = max(abs(dot(t(A), p) + z))
     # Affichage
     print("Vérification des équations d'équilibre du réseau")
     print("Sur les débits : {}".format(tol_debits))
@@ -18,5 +18,5 @@ def verify_equilibrum(q, z, f, p):
 
 if __name__ == '__main__':
     qc0 = np.random.normal(size=n-md)
-    q, z, f, p = compute_hydraulique(qc0)
+    q, z, f, p = compute_hydraulic_p(qc0)
     verify_equilibrum(q, z, f, p)
