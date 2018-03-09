@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import numpy as np
-from oracle import *
 from numpy import dot
 
 def wolf(alpha, x, D, oracle):
@@ -16,7 +15,7 @@ def wolf(alpha, x, D, oracle):
     # Algorithme de Fletcher-Lemarechal
     
     # Appel de l'oracle au point initial
-    loss, gradient, heissien = oracle(x)
+    loss, gradient, _ = oracle(x)
     # Initialisation de l'algorithme
     alpha_n = alpha
     xn     = x
@@ -28,10 +27,10 @@ def wolf(alpha, x, D, oracle):
         xn = x + alpha_n*D
         
         # Calcul des conditions de Wolf
-        loss_n, gradient_n, heissien_n = oracle(xp)
-        wolf_1 = (loss_n - loss <= omega_1 * alpha_n * dot(gradient,D))
-        wolf_2 = (dot(gradient_n,D) >= omega_2 * dot(gradient,D))
-        print(loss_n,gradient_n)
+        loss_n, gradient_n, _ = oracle(xp)
+        wolf_1 = (loss_n - loss) <= (omega_1 * alpha_n * dot(gradient, D))
+        wolf_2 = (dot(gradient_n,D) >= omega_2 * dot(gradient, D))
+        #print(wolf_1)
         #Test de la valeur de alphan :
         #- si les deux conditions de Wolfe sont verifiees,
         #   faire ok = 1 : on sort alors de la boucle while
