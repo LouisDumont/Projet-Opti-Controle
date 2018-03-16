@@ -2,8 +2,8 @@
 
 import numpy as np
 from oracle import *
+<<<<<<< HEAD
 from gradient import *
-
 
 x0 = np.random.normal(size=n-md)
 
