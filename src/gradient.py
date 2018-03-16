@@ -7,9 +7,10 @@ from wolfe_skel import *
 
 from visualize import visualize
 
+
 # Resolution d'un probleme d'optimisation sans contrainte
 # Methode de gradient à fixe
-def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, threshold = 0.000001, visual=True):
+def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, threshold = 0.000001, visual=True, use_wolfe=True):
     # Initialisation des variables
     gradient_norm_list = []
     gradient_step_list = []
@@ -31,8 +32,7 @@ def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, thresh
             break
         
         # Calcul de la longueur du pas de gradient
-        gradient_step, ok = wolfe(1, x, -gradient, oracle)
-        #gradient_step = default_gradient_step
+        gradient_step, ok = wolfe(1, x, -gradient, oracle) if use_wolfe else (default_gradient_step, 1)
         
         # Mise à jour des variables
         x = x - gradient * gradient_step
