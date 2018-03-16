@@ -2,7 +2,7 @@
 
 import numpy as np
 from oracle import *
-from gradient_fixe import *
+from gradient import *
 
 x0 = np.random.normal(size=n-md)
-gradient(oracle,x0,iter_max=10)
+gradient(oracle,x0)

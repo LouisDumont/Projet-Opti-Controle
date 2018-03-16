@@ -26,11 +26,13 @@ def wolfe(alpha, x, D, oracle):
     # xn represente le point pour la valeur courante du pas,
     # xp represente le point pour la valeur precedente du pas.
     while (ok==0):
+        # Point précédent pour tester l'indistinguabilité
         xp = xn
+        # Point actuel
         xn = x + alpha_n*D
         
         # Calcul des conditions de Wolf
-        loss_n, gradient_n, _ = oracle(xp)
+        loss_n, gradient_n, _ = oracle(xn)
         wolf_1 = (loss_n - loss) <= (omega_1 * alpha_n * dot(gradient, D))
         wolf_2 = (dot(gradient_n,D) >= omega_2 * dot(gradient, D))
         #print(wolf_1)
@@ -48,7 +50,7 @@ def wolfe(alpha, x, D, oracle):
             alpha_max = alpha_n
             alpha_n = (1/2) * (alpha_min + alpha_max)
         
-        loss, gradient = loss_n, gradient_n
+        #loss, gradient = loss_n, gradient_n
                 
         # Test d'indistinguabilite
         if (np.linalg.norm(xn-xp)<dltx):
