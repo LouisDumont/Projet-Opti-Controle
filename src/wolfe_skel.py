@@ -2,7 +2,10 @@
 import numpy as np
 from numpy import dot
 
-def wolf(alpha, x, D, oracle):
+from datas_r import *
+from oracle import *
+
+def wolfe(alpha, x, D, oracle):
     
     # Coefficients de la recherche lineaire
     omega_1 = 0.1
@@ -56,4 +59,4 @@ def wolf(alpha, x, D, oracle):
 if __name__=="__main__":
     x = np.random.normal(size=n-md)
     D = np.random.normal(size=n-md)
-    wolf(1,x,D,oracle)
+    wolfe(1,x,D,oracle)

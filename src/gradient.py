@@ -3,7 +3,7 @@
 import numpy as np
 from numpy.linalg import norm
 from time import process_time
-from wolf_skel import *
+from wolfe_skel import *
 
 from visualize import visualize
 
@@ -31,7 +31,7 @@ def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, thresh
             break
         
         # Calcul de la longueur du pas de gradient
-        gradient_step, ok = wolf(1, x, -gradient, oracle)
+        gradient_step, ok = wolfe(1, x, -gradient, oracle)
         #gradient_step = default_gradient_step
         
         # Mise à jour des variables
