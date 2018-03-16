@@ -17,6 +17,10 @@ print("Gradient à pas optimal (Wolfe)")
 gradient(oracle, x0)
 print()
 
+# Gradient avec Polak
+gradient_polak(oracle, x0)
+print()
+
 # Newton
 print("Méthode de Newton")
 newton(oracle, x0)
