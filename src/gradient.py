@@ -10,7 +10,7 @@ from visualize import visualize
 
 # Resolution d'un probleme d'optimisation sans contrainte
 # Methode de gradient à fixe
-def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, threshold = 0.000001, visual=True, use_wolfe=True):
+def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, threshold = 0.000001, visual=True, use_wolfe=True, verbose=False):
     # Initialisation des variables
     gradient_norm_list = []
     gradient_step_list = []
@@ -36,7 +36,8 @@ def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, thresh
         
         # Mise à jour des variables
         x = x - gradient * gradient_step
-        print(gradient_step, gradient_norm)
+        if verbose:
+            print('Iter :', k, '; gradient_step={}'.format(gradient_step), '; gradient_norm={}'.format(gradient_norm))
         
         # Historique de l'évolution du gradient, du pas, et du critère
         gradient_norm_list.append(gradient_norm)
