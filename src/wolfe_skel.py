@@ -6,7 +6,6 @@ from datas_r import *
 from oracle import *
 
 def wolfe(alpha, x, D, oracle):
-    
     # Coefficients de la recherche lineaire
     omega_1 = 0.1
     omega_2 = 0.9
@@ -21,7 +20,7 @@ def wolfe(alpha, x, D, oracle):
     loss, gradient, _ = oracle(x)
     # Initialisation de l'algorithme
     alpha_n = alpha
-    xn     = x
+    xn = x
     # Boucle de calcul du pas
     # xn represente le point pour la valeur courante du pas,
     # xp represente le point pour la valeur precedente du pas.

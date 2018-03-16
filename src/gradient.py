@@ -9,7 +9,7 @@ from visualize import visualize
 
 
 # Resolution d'un probleme d'optimisation sans contrainte
-# Methode de gradient à fixe
+# Methode de gradient à pas opti (Wolfe), ou à pas fixe
 def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, threshold = 0.000001, visual=True, use_wolfe=True, verbose=False):
     # Initialisation des variables
     gradient_norm_list = []
