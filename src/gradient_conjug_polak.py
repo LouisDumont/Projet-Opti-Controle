@@ -21,8 +21,9 @@ def gradient_polak(oracle, x0, iter_max=5000, threshold=0.000001, visual=True):
     
     
     # Boucle sur les iterations
+    # Initialisation
     x_n = x0
-    x_previous = x0
+    x_previous = x_n
     loss_previous, grad_previous, hess_previous = oracle(x_previous)
     d_previous = -grad_previous
     for k in range(iter_max):
@@ -35,6 +36,7 @@ def gradient_polak(oracle, x0, iter_max=5000, threshold=0.000001, visual=True):
         # Calcul du nouveau minimum et mise à jour des vairables
         x_previous = x_n
         grad_previous = grad_n
+        d_previous = d_n
         x_n = x_previous + alpha_n*d_n
         
         # Sections d'affichage

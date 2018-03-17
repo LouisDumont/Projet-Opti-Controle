@@ -4,6 +4,8 @@ import numpy as np
 from oracle import *
 from gradient import *
 from newton import *
+from gradient_conjug_polak import *
+from bfgs import * 
 
 x0 = np.random.normal(size=n-md)
 
@@ -18,10 +20,16 @@ gradient(oracle, x0)
 print()
 
 # Gradient avec Polak
+print("Gradient conjugé, variante de Polak-Ribières")
 gradient_polak(oracle, x0)
 print()
 
 # Newton
 print("Méthode de Newton")
 newton(oracle, x0)
+print()
+
+# BFGS
+print("Méthode de Newton approchée: BFGS")
+bfgs(oracle, x0, verbose=True)
 print()
