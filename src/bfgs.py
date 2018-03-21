@@ -36,11 +36,11 @@ def bfgs(oracle, x0, iter_max = 5000, threshold = 0.000001, visual=True, verbose
         delta_x = x - x_previous
         delta_grad = gradient - gradient_previous
         # Calcul de l'approximée de la hessienne
-        aux_xg = np.dot(delta_x, delta_grad)/np.vdot(delta_grad, delta_x)
+        aux_xg = np.outer(delta_x, delta_grad)/np.vdot(delta_grad, delta_x)
         #print(aux_xg.size)
-        aux_gx = np.dot(delta_grad, delta_x)/np.vdot(delta_grad, delta_x)
+        aux_gx = np.outer(delta_grad, delta_x)/np.vdot(delta_grad, delta_x)
         #print(aux_gx.size)
-        aux_xx = np.dot(delta_x, delta_x)/np.vdot(delta_grad, delta_x)
+        aux_xx = np.outer(delta_x, delta_x)/np.vdot(delta_grad, delta_x)
         #print(aux_xx.size)
         W_n = np.dot(np.dot(np.eye(size) - aux_xg, W_n), np.eye(size) - aux_gx) + aux_xx
         # Calcul de la direction de descente

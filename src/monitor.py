@@ -31,5 +31,5 @@ print()
 
 # BFGS
 print("Méthode de Newton approchée: BFGS")
-bfgs(oracle, x0, verbose=True)
+bfgs(oracle, x0)
 print()
