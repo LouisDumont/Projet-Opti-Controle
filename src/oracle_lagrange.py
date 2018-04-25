@@ -22,11 +22,3 @@ def oracle(u, compute_gradient=True, compute_hessian=False):
     hessian = 2 * dot(t(B), t(r*abs(q)*t(B))) if compute_hessian else None
     
     return loss, gradient, hessian
-
-if __name__ == '__main__':
-    # Test
-    qc = np.random.normal(size=n-md)
-    loss, gradient, hessian = oracle(qc,compute_hessian=True)
-    print(loss)
-    print(gradient)
-    print(hessian)

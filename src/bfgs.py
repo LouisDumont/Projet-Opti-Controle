@@ -81,8 +81,3 @@ def bfgs(oracle, x0, iter_max = 5000, threshold = 0.000001, visual=True, verbose
     
     return loss_opt, x_opt, gradient_opt
     
-
-if __name__ == '__main__':
-    oracle = lambda x: (x**2, np.array(x*2), None)
-    x0 = np.array([2])
-    loss_opt, x_opt, gradient_opt = bfgs(oracle, x0, threshold=1e-16, verbose=True)

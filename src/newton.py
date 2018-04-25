@@ -57,9 +57,3 @@ def newton(oracle, x_0, iter_max = 5000, threshold = 0.000001, visual=True, verb
         visualize(direction_norm_list, direction_step_list, loss_list)
     
     return loss_opt, x_opt, direction_opt
-    
-if __name__ == '__main__':
-    oracle = lambda x: (x**2, np.array(x*2), None)
-    x_0 = np.array([2])
-    loss_opt, x_opt, direction_opt = direction(oracle, x_0, threshold=1e-16)
-

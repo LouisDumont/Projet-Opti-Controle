@@ -41,12 +41,3 @@ def compute_hydraulic_d(pd):
     
     return q, z, f, p
     
-
-if __name__ == '__main__':
-    qc0 = np.random.normal(size=n-md)
-    for k in compute_hydraulic_p(qc0):
-        print(k)
-
-    pd0 = np.random.normal(size=md)
-    for k in compute_hydraulic_d(pd0):
-        print(k)
