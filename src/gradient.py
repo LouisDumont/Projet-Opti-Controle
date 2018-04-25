@@ -3,8 +3,8 @@
 import numpy as np
 from numpy.linalg import norm
 from time import process_time
-from wolfe_skel import *
 
+from .wolfe_skel import *
 from .visualize import visualize
 
 
@@ -49,11 +49,12 @@ def gradient(oracle, x0, iter_max = 5000, default_gradient_step = 0.0005, thresh
     x_opt = x
     gradient_opt = gradient
     time_cpu = process_time() - time_start
-    print('Iteration :', k)
-    print('Temps CPU :', time_cpu)
-    print('Critere optimal :', loss_opt)
-    print('Norme du gradient :', norm(gradient_opt))
-    print('X optimal :', x_opt)
+    if verbose:
+        print('Iteration :', k)
+        print('Temps CPU :', time_cpu)
+        print('Critere optimal :', loss_opt)
+        print('Norme du gradient :', norm(gradient_opt))
+        print('X optimal :', x_opt)
     
     # Visualisation de la convergence
     if visual:

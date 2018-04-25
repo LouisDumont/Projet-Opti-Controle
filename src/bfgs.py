@@ -3,8 +3,8 @@
 import numpy as np
 from numpy.linalg import norm
 from time import process_time
-from wolfe_skel import *
 
+from .wolfe_skel import *
 from .visualize import visualize
 
 # Resolution d'un probleme d'optimisation sans contrainte
