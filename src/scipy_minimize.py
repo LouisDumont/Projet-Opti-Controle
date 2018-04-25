@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-from datas_r import *
-from oracle import oracle
+from .datas_r import *
+from .oracle import oracle
 
 import numpy as np
 from scipy.optimize import minimize

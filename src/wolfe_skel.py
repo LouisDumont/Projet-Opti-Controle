@@ -2,8 +2,8 @@
 import numpy as np
 from numpy import dot
 
-from datas_r import *
-from oracle import *
+from .datas_r import *
+from .oracle import *
 
 def wolfe(alpha, x, D, oracle):
     # Coefficients de la recherche lineaire

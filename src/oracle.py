@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from datas_r import *
+from .datas_r import *
 
 import numpy as np
 from numpy import dot

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from datas_r import *
+from .datas_r import *
 
 from hydraulic import compute_hydraulic_p
 

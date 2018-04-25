@@ -5,7 +5,7 @@ from numpy.linalg import norm
 from time import process_time
 from wolfe_skel import *
 
-from visualize import visualize
+from .visualize import visualize
 
 # Resolution d'un probleme d'optimisation sans contrainte
 def newton(oracle, x_0, iter_max = 5000, threshold = 0.000001, visual=True, verbose=False):

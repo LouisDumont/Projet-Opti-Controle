@@ -1,11 +1,11 @@
 #!/usr/bin/python
 
 import numpy as np
-from oracle import *
-from gradient import *
-from newton import *
-from gradient_conjug_polak import *
-from bfgs import * 
+from .oracle import *
+from .gradient import *
+from .newton import *
+from .gradient_conjug_polak import *
+from .bfgs import * 
 
 x0 = np.random.normal(size=n-md)
 
