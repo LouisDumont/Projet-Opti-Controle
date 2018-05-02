@@ -18,7 +18,7 @@ def oracle(u, compute_gradient=True, compute_hessian=False):
     q, delta = q_hat(u)
     # Critère
     # on prend l'opposée du critère réel pour passer à un problème de minimisation
-    loss = -(1./3*dot(q, r*q*np.abs(q)) + dot(pr, dot(Ar, q)) + dot(t(u), dot(Ad, q) - fd))
+    loss = -(1./3*dot(q, r*q*np.abs(q)) + dot(pr, dot(Ar, q)) + dot(u, dot(Ad, q) - fd))
     # Dérivée du critère par rapport à u
     # On prend l'opposée du critère réel pour passer à un problème de minimisation
     gradient = -( dot(Ad, q) - fd) if compute_gradient else None
